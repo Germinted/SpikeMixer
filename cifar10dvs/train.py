@@ -15,7 +15,7 @@ from spikingjelly.clock_driven import functional
 from spikingjelly.datasets import cifar10_dvs
 from timm.models import create_model
 from timm.data import Mixup
-from timm.optim import create_optimizer
+from timm.optim import create_optimizer_v2, optimizer_kwargs
 from timm.scheduler import create_scheduler
 from timm.loss import SoftTargetCrossEntropy
 import autoaugment
@@ -41,7 +41,7 @@ def parse_args():
     parser.add_argument('--num-classes', type=int, default=10, metavar='N',
                         help='number of label classes (default: 1000)')
     parser.add_argument('--data-path', default='./datasets/CIFAR10DVS', help='dataset')
-    parser.add_argument('--device', default='cuda:1', help='device')
+    parser.add_argument('--device', default='cuda:0', help='device')
     parser.add_argument('-b', '--batch-size', default=16, type=int)
     parser.add_argument('-j', '--workers', default=4, type=int, metavar='N',
                         help='number of data loading workers (default: 4)')
@@ -364,7 +364,7 @@ def main(args):
     criterion_train = SoftTargetCrossEntropy().cuda()
     criterion = nn.CrossEntropyLoss()
 
-    optimizer = create_optimizer(args, model)
+    optimizer = create_optimizer_v2(model, **optimizer_kwargs(cfg=args))
     if args.amp:
         scaler = amp.GradScaler()
     else:
