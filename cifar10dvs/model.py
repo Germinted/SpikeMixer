@@ -9,7 +9,7 @@ import torch.nn.functional as F
 from functools import partial
 import numpy as np
 
-__all__ = ['SpikeMixerModel', 'DVSMixerModel']
+__all__ = ['SpikeMixerModel']
 
 class MSN(nn.Module):
   """Multiplicative Spiking Neuron for 2D spatial data.
