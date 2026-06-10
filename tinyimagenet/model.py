@@ -7,7 +7,7 @@ from timm.models.layers import trunc_normal_, DropPath
 from timm.models.registry import register_model
 from timm.models.vision_transformer import _cfg
 
-__all__ = ['spikemixer_s', 'spikemixer_m', 'spikemixer_l']
+__all__ = ['spikemixer_tinyimagenet']
 
 
 # =============================================================================

@@ -65,13 +65,13 @@ _logger = logging.getLogger('train')
 # The first arg parser parses out only the --config argument, this argument is used to
 # load a yaml file containing key-values that override the defaults for the main parser below
 config_parser = parser = argparse.ArgumentParser(description='Training Config', add_help=False)
-parser.add_argument('-c', '--config', default='imagenet.yml', type=str, metavar='FILE',
+parser.add_argument('-c', '--config', default='tinyimagenet.yml', type=str, metavar='FILE',
                     help='YAML config file specifying default arguments')
 
 parser = argparse.ArgumentParser(description='PyTorch ImageNet Training')
 
 # Dataset / Model parameters
-parser.add_argument('-data-dir', metavar='DIR',default='./datasets/ImageNet2012/',
+parser.add_argument('-data-dir', metavar='DIR',default='./datasets/tiny-imagenet-200/',
                     help='path to dataset')
 parser.add_argument('--dataset', '-d', metavar='NAME', default='torch/cifar10',
                     help='dataset type (default: ImageFolder/ImageTar if empty)')

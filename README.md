@@ -23,11 +23,11 @@ SpikeMixer is a spiking neural network (SNN) architecture that incorporates dyna
 
 ```
 SpikeMixer/
-├── imagenet/              # ImageNet training scripts
+├── tinyimagenet/         # Tiny-ImageNet training scripts (200 classes)
 │   ├── train.py          # Training script
 │   ├── test.py           # Evaluation script
-│   ├── model.py          # SpikeMixer model for ImageNet
-│   └── imagenet.yml      # Configuration file
+│   ├── model.py          # SpikeMixer model for Tiny-ImageNet
+│   └── tinyimagenet.yml  # Configuration file
 ├── cifar10/              # CIFAR-10 training scripts
 │   ├── train.py          # Training script
 │   ├── model.py          # SpikeMixer model for CIFAR-10
@@ -68,7 +68,19 @@ pip install torch torchvision timm spikingjelly tensorboard pyyaml cupy
 
 ## Dataset Preparation
 
-### ImageNet
+### Tiny-ImageNet
+
+Download Tiny-ImageNet-200 from http://cs231n.stanford.edu/tiny-imagenet-200.zip. Extract to:
+
+```
+datasets/
+└── tiny-imagenet-200/
+    ├── train/
+    ├── val/
+    └── test/
+```
+
+### ImageNet (Full)
 
 Download and extract ImageNet to a directory:
 
@@ -106,22 +118,22 @@ datasets/
 
 ## Usage
 
-### ImageNet Training
+### Tiny-ImageNet Training
 
 ```bash
-cd imagenet
+cd tinyimagenet
 
 # Basic training
-python train.py --data-dir ./datasets/ImageNet2012/
+python train.py --data-dir ./datasets/tiny-imagenet-200/
 
 # With custom configuration
-python train.py -c imagenet.yml --data-dir ./datasets/ImageNet2012/
+python train.py -c tinyimagenet.yml --data-dir ./datasets/tiny-imagenet-200/
 ```
 
-### ImageNet Evaluation
+### Tiny-ImageNet Evaluation
 
 ```bash
-python test.py --data-dir ./datasets/ImageNet2012/ --resume ./pretrained/spikemixer-checkpoint.pth.tar
+python test.py --data-dir ./datasets/tiny-imagenet-200/ --resume ./pretrained/spikemixer-tinyimagenet-checkpoint.pth.tar
 ```
 
 ### CIFAR-10 Training

@@ -1,5 +1,5 @@
-dataset: imagenet
-num_classes: 1000
+dataset: tiny_imagenet
+num_classes: 200
 img_size: 224
 mean:
     - 0.485
@@ -38,4 +38,4 @@ warmup_lr: 0.000001
 opt: adamw
 smoothing: 0.1
 workers: 8
-resume: ./pretrained/spikemixer-checkpoint.pth.tar
+resume: ./pretrained/spikemixer-tinyimagenet-checkpoint.pth.tar
