@@ -12,9 +12,9 @@ This project provides the official codebase for training and evaluating SpikeMix
 
 ## Overview
 
-SpikeMixer is a spiking neural network (SNN) architecture that incorporates dynamic token mixing mechanisms for efficient event-based and static image recognition. The model combines:
+SpikeMixer is a spiking neural network (SNN) architecture that incorporates dynamic mixing mechanisms for efficient event-based and static image recognition. The model combines:
 
-- **Dynamic Mixing**: Adaptively mixes spatial tokens using multi-head operations
+- **Dynamic Mixing**: Adaptively mixes spatial tokens using dynamic weight matrices
 - **Axial Mixing**: Efficient H/W axis processing for 2D spatial data
 - **Spiking Neurons**: LIF (Leaky Integrate-and-Fire) neurons for event-based processing
 - **Progressive Patch Embedding**: Multi-stage downsampling with spike-based encoding
